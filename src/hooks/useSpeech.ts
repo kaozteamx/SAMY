@@ -44,6 +44,33 @@ export function useSpeech() {
   const speak = useCallback((text: string, rate = 0.9): Promise<void> => {
     if (!synth) return Promise.resolve();
 
+    // Fix for syllables that the TTS often spells out (like "CLE" -> "C-L-E")
+    // Adding a tonic accent forces the TTS to treat it as a word/syllable
+    const sanitizeText = (t: string) => {
+      const lower = t.toLowerCase().trim();
+      
+      // Only patch short strings (syllables)
+      if (lower.length > 0 && lower.length <= 4) {
+        const patches: Record<string, string> = {
+          'cle': 'clé', 'cla': 'clá', 'cli': 'clí', 'clo': 'cló', 'clu': 'clú',
+          'ble': 'blé', 'bla': 'blá', 'bli': 'blí', 'blo': 'bló', 'blu': 'blú',
+          'ple': 'plé', 'pla': 'plá', 'pli': 'plí', 'plo': 'pló', 'plu': 'plú',
+          'tre': 'tré', 'tra': 'trá', 'tri': 'trí', 'tro': 'tró', 'tru': 'trú',
+          'fre': 'fré', 'fra': 'frá', 'fri': 'frí', 'fro': 'fró', 'fru': 'frú',
+          'gre': 'gré', 'gra': 'grá', 'gri': 'grí', 'gro': 'gró', 'gru': 'grú',
+          'pre': 'pré', 'pra': 'prá', 'pri': 'prí', 'pro': 'pró', 'pru': 'prú',
+          'fla': 'flá', 'fle': 'flé', 'fli': 'flí', 'flo': 'fló', 'flu': 'flú',
+          'bra': 'brá', 'bre': 'bré', 'bri': 'brí', 'bro': 'bró', 'bru': 'brú',
+          'cra': 'crá', 'cre': 'cré', 'cri': 'crí', 'cro': 'cró', 'cru': 'crú',
+          'dra': 'drá', 'dre': 'dré', 'dri': 'drí', 'dro': 'dró', 'dru': 'drú',
+        };
+        return patches[lower] || t;
+      }
+      return t;
+    };
+
+    const finalTex = sanitizeText(text);
+
     // Resume in case Chrome paused
     synth.resume();
 
@@ -80,7 +107,7 @@ export function useSpeech() {
         useVoices[0] ??
         null;
 
-      const utt = new SpeechSynthesisUtterance(text);
+      const utt = new SpeechSynthesisUtterance(finalTex);
 
       if (bestVoice) {
         utt.voice = bestVoice;
