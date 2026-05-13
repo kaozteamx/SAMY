@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Home, LayoutList, MessageCircle, Puzzle, type LucideIcon } from 'lucide-react';
+import { Home, Timer, LayoutList, MessageCircle, Puzzle, type LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useSounds } from '../hooks/useSounds';
 
@@ -19,6 +19,7 @@ export default function NavBar() {
 
   const navItems: NavItem[] = [
     { to: "/", icon: Home, label: "Inicio" },
+    { to: "/rapido", icon: Timer, label: "Rápido" },
     { to: "/mapa", icon: LayoutList, label: "Mi Día" },
     { to: "/habla", icon: MessageCircle, label: "Habla" },
     { to: "/retos", icon: Puzzle, label: "Retos" },

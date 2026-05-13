@@ -7,7 +7,6 @@ import { useSpeech } from '../hooks/useSpeech';
 import { useSounds, fireConfetti } from '../hooks/useSounds';
 import { getRoutinesWithCustom, shouldShowTask } from '../data/rutinas';
 import Timer from '../components/Timer';
-import QuickTimer from '../components/QuickTimer';
 import type { RoutineTask } from '../types';
 
 export default function MiMapa() {
@@ -33,11 +32,7 @@ export default function MiMapa() {
     playClick();
     setActiveRoutine(rid);
     setActiveTaskId(null);
-    if (rid !== 'quick') {
-      speak(`Rutina de ${name.replace(/[^\w\sáéíóúñ]/gi, '')}`);
-    } else {
-      speak('Temporizador rápido');
-    }
+    speak(`Rutina de ${name.replace(/[^\w\sáéíóúñ]/gi, '')}`);
   };
 
   const handleTaskClick = (task: RoutineTask) => {
@@ -108,24 +103,6 @@ export default function MiMapa() {
             {r.name}
           </motion.button>
         ))}
-        <motion.button
-          type="button"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: routines.length * 0.05 }}
-          onClick={() => handleTabClick('quick', 'Rápido')}
-          className={`w-full min-w-0 box-border text-center px-4 py-3.5 rounded-2xl font-bold text-sm transition-all ${
-            activeRoutine === 'quick'
-              ? 'text-white shadow-lg'
-              : 'bg-surface border border-white/40 text-text hover:bg-surface-hover'
-          }`}
-          style={activeRoutine === 'quick' ? {
-            background: 'linear-gradient(135deg, #06B6D4, #67E8F9)',
-            boxShadow: '0 4px 16px rgba(6, 182, 212, 0.3)',
-          } : undefined}
-        >
-          ⏱️ Rápido
-        </motion.button>
       </div>
 
       {/* Content */}
@@ -137,9 +114,7 @@ export default function MiMapa() {
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.2 }}
         >
-          {activeRoutine === 'quick' ? (
-            <QuickTimer onComplete={() => handleTimerComplete(null, [])} />
-          ) : activeTask ? (
+          {activeTask ? (
             <div className="glass rounded-[28px] p-6 flex flex-col items-center">
               <div className="text-6xl mb-3">{activeTask.icon}</div>
               <h2 className="text-2xl font-extrabold text-gradient mb-5">{activeTask.name}</h2>

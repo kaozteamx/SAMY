@@ -8,6 +8,7 @@ import MiMapa from './pages/MiMapa';
 import Habla from './pages/Habla';
 import Retos from './pages/Retos';
 import Config from './pages/Config';
+import Rapido from './pages/Rapido';
 
 function AppRoutes() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function AppRoutes() {
         <Routes location={location}>
           <Route index element={<Home />} />
           <Route path="/mapa" element={<MiMapa />} />
+          <Route path="/rapido" element={<Rapido />} />
           <Route path="/habla" element={<Habla />} />
           <Route path="/retos" element={<Retos />} />
           <Route path="/config" element={<Config />} />
