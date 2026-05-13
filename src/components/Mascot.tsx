@@ -26,7 +26,7 @@ export default function Mascot({ size = 160 }: MascotProps) {
     ensureAudio();
     playPop();
     const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-    speak(randomPhrase, 0.95, 1.6);
+    speak(randomPhrase, 0.95, 1.9);
   };
 
   const renderAccessory = (id: string | null): ReactNode => {
