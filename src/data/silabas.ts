@@ -1,0 +1,50 @@
+import type { SyllableWord } from '../types';
+
+export const syllableWords: SyllableWord[] = [
+  // 1 sílaba
+  { word: 'SOL', syllables: ['SOL'], emoji: '☀️' },
+  { word: 'FLOR', syllables: ['FLOR'], emoji: '🌸' },
+  { word: 'PAN', syllables: ['PAN'], emoji: '🍞' },
+  { word: 'TREN', syllables: ['TREN'], emoji: '🚂' },
+  { word: 'PIES', syllables: ['PIES'], emoji: '🦶' },
+  { word: 'MAR', syllables: ['MAR'], emoji: '🌊' },
+  { word: 'REY', syllables: ['REY'], emoji: '👑' },
+
+  // 2 sílabas
+  { word: 'CASA', syllables: ['CA', 'SA'], emoji: '🏠' },
+  { word: 'MAMÁ', syllables: ['MA', 'MÁ'], emoji: '👩' },
+  { word: 'PAPÁ', syllables: ['PA', 'PÁ'], emoji: '👨' },
+  { word: 'GATO', syllables: ['GA', 'TO'], emoji: '🐱' },
+  { word: 'LUNA', syllables: ['LU', 'NA'], emoji: '🌙' },
+  { word: 'MANO', syllables: ['MA', 'NO'], emoji: '✋' },
+  { word: 'MESA', syllables: ['ME', 'SA'], emoji: '🍴' },
+  { word: 'SOPA', syllables: ['SO', 'PA'], emoji: '🍜' },
+  { word: 'PATO', syllables: ['PA', 'TO'], emoji: '🦆' },
+  { word: 'RANA', syllables: ['RA', 'NA'], emoji: '🐸' },
+  { word: 'OSO', syllables: ['O', 'SO'], emoji: '🐻' },
+  { word: 'PERRO', syllables: ['PE', 'RRO'], emoji: '🐶' },
+  { word: 'SILLA', syllables: ['SI', 'LLA'], emoji: '🪑' },
+  { word: 'NUBE', syllables: ['NU', 'BE'], emoji: '☁️' },
+  { word: 'LLAVE', syllables: ['LLA', 'VE'], emoji: '🔑' },
+  { word: 'FRUTA', syllables: ['FRU', 'TA'], emoji: '🍎' },
+  { word: 'PLATO', syllables: ['PLA', 'TO'], emoji: '🍽️' },
+  { word: 'BOCA', syllables: ['BO', 'CA'], emoji: '👄' },
+  { word: 'DEDO', syllables: ['DE', 'DO'], emoji: '🖐️' },
+  { word: 'VASO', syllables: ['VA', 'SO'], emoji: '🥤' },
+  { word: 'AGUA', syllables: ['A', 'GUA'], emoji: '💧' },
+  { word: 'HADA', syllables: ['HA', 'DA'], emoji: '🧚' },
+  { word: 'BELLA', syllables: ['BE', 'LLA'], emoji: '👸' },
+  { word: 'AMIGA', syllables: ['A', 'MI', 'GA'], emoji: '👧' },
+  { word: 'REGALO', syllables: ['RE', 'GA', 'LO'], emoji: '🎁' },
+  { word: 'MUÑECA', syllables: ['MU', 'ÑE', 'CA'], emoji: '🪆' },
+
+  // 3 sílabas
+  { word: 'MARIPOSA', syllables: ['MA', 'RI', 'PO', 'SA'], emoji: '🦋' },
+  { word: 'ESTRELLA', syllables: ['ES', 'TRE', 'LLA'], emoji: '⭐' },
+  { word: 'PLÁTANO', syllables: ['PLÁ', 'TA', 'NO'], emoji: '🍌' },
+  { word: 'CHOCOLATE', syllables: ['CHO', 'CO', 'LA', 'TE'], emoji: '🍫' },
+  { word: 'BICICLETA', syllables: ['BI', 'CI', 'CLE', 'TA'], emoji: '🚲' },
+  { word: 'UNICORNIO', syllables: ['U', 'NI', 'COR', 'NIO'], emoji: '🦄' },
+  { word: 'ARCOÍRIS', syllables: ['AR', 'CO', 'Í', 'RIS'], emoji: '🌈' },
+  { word: 'MARAVILLA', syllables: ['MA', 'RA', 'VI', 'LLA'], emoji: '🌟' },
+];
