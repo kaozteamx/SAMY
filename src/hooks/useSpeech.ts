@@ -41,7 +41,7 @@ export function useSpeech() {
     };
   }, [synth]);
 
-  const speak = useCallback((text: string, rate = 0.9): Promise<void> => {
+  const speak = useCallback((text: string, rate = 0.9, pitch = 1.15): Promise<void> => {
     if (!synth) return Promise.resolve();
 
     // Fix for syllables that the TTS often spells out (like "CLE" -> "C-L-E")
@@ -117,7 +117,7 @@ export function useSpeech() {
       }
 
       utt.rate = rate;
-      utt.pitch = 1.15;
+      utt.pitch = pitch;
       utt.volume = 1.0;
 
       utteranceRef.current = utt;
